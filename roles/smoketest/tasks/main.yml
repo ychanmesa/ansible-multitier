@@ -14,8 +14,10 @@
 - name: Check webserver for correct response
   uri:
     url: "http://{{ groups['load_balancers'][0]}}/ping"
-    method: GET
-  until: result.status == 200
+    #method: GET
+    return_content: yes
+  until: '"alive" in result.content'
+  #until: result.status == 200
   retries: 10
   delay: 1
   register: result
