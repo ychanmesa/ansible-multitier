@@ -3,10 +3,10 @@
   hosts: app_servers
   gather_facts: true
   become: true
+  tags:
+    - smoketest
   vars:
     ansible_python_interpreter: /usr/bin/python3
-  tags:
-    - smoketest  
 
   tasks:
 
