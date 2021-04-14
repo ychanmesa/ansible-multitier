@@ -1,0 +1,11 @@
+---
+- name: End to end smoke tests
+  hosts: app_servers
+  gather_facts: false
+  become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tags:
+    - smoketest
+  roles:
+    - smoketest
